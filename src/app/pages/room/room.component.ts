@@ -75,7 +75,7 @@ export class RoomComponent implements OnInit, OnDestroy {
       if (this.room && !document.hidden) {
         this.getRoomDetail(this.room.roomId.toString())
       }
-    }, 10000)
+    }, 5000)
   }
 
   removeUpdateInterval() {
