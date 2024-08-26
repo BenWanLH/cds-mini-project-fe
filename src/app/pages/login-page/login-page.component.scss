@@ -1,0 +1,20 @@
+:host {
+  width: 100%;
+}
+
+.login-page {
+  max-width: 480px;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin: 0 auto;
+  padding: 24px;
+
+  &__container {
+    width: 100%;
+
+  }
+
+  &__actions {
+    text-align: right;
+  }
+}

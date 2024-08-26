@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <h3>Mini-Project</h3>
+
+  @if(isLogin) {
+  <span (click)="onCreateRoomClicked()">
+    <button class="ml-4" mat-button>
+      Create Room
+    </button>
+  </span>
+  <span class="mr-auto"></span>
+  <span (click)="logout()">
+    <mat-icon class=" cursor" aria-hidden="false">
+      logout
+    </mat-icon>
+  </span>
+
+  }
+</mat-toolbar>

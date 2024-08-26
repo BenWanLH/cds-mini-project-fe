@@ -1,0 +1,54 @@
+<div class="room">
+  @if(room) {
+    @if(!isClosed() && room.isOwner) {
+      <button class="mb-8" mat-fab extended (click)="closeRoom()">
+        Close Room
+      </button>
+      <button class="mb-8 ml-4" mat-fab extended (click)="onShareClicked()">
+        Share Room
+      </button>
+    }
+    <h3 class="room__header">
+      Room {{room.roomId}}
+    </h3>
+
+    @if(room.status === "CLOSE") {
+      <h3>Room has been closed <br> The selected Venue is ...</h3>
+    }
+    @else{
+      <mat-form-field class="max-w-screen-sm w-full">
+        <mat-label>Suggestion</mat-label>
+        <input matInput [formControl]="suggestion"
+          placeholder="Suggestion" value="">
+      </mat-form-field>
+      <button mat-icon-button (click)="addSuggestion()">
+        <mat-icon class="cursor" aria-hidden="false">
+          arrow_forward
+        </mat-icon>
+      </button>
+    }
+    
+    <div class="suggestion__container">
+      @if(room.suggestions.length === 0) {
+        <div class="my-0 mx-auto">
+          There are no suggestions at the moment.
+          <br>
+          How about starting off with 1
+        </div>
+        
+      } @else if (isClosed()) {
+        <div class="suggestion__item mx-auto my-0">
+          {{room.selectedSuggestion}}
+      </div>
+      }
+      @else {
+        @for (suggestion of room.suggestions; track suggestion.suggestionId) {
+          <div class="suggestion__item">
+              {{suggestion.suggestion}}
+          </div>
+        }
+      }
+    </div>
+    
+  }
+</div>

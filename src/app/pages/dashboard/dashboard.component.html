@@ -1,0 +1,31 @@
+<div class="dashboard h-full flex">
+  <div class="navbar">
+    @if(rooms.length === 0) {
+    <div class="navbar__empty">
+      <span>You have no rooms created at the moment.</span>
+
+    </div>
+    }
+    @else {
+    @for (room of rooms; track room.roomId) {
+    <span class="navbar__item">
+      <a class="grow" [routerLink]="room.roomId.toString()" rel="noopener">
+        <span>Room {{ room.roomId }}</span>
+      </a>
+    </span>
+
+    }
+    }
+  </div>
+  @if(rooms.length === 0) {
+  <div class="m-auto max-w-sm">
+    You have no rooms created at the moment. Consider creating one with the button found on the nav bar above
+  </div>
+  }
+  @else {
+    <div class="p-6 grow">
+      <router-outlet class="flex-grow-1"></router-outlet>
+
+    </div>
+  }
+</div>
