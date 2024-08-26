@@ -8,7 +8,7 @@
         <input matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher"
           placeholder="Username" value="">
         @if (usernameFormControl.hasError('required')) {
-        <mat-error> b</mat-error>
+        <mat-error>Required field</mat-error>
         }
       </mat-form-field>
       <mat-form-field class="w-full mt-4">
